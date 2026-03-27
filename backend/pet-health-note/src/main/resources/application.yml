@@ -1,0 +1,104 @@
+spring:
+  application:
+    name: pet-health-note
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:prod}
+
+---
+# 开发环境配置
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    url: jdbc:mysql://localhost:3306/pet_health_note?useSSL=false&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:12345678}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto
+
+server:
+  port: 8080
+
+logging:
+  level:
+    root: INFO
+    com.pethealthnote: DEBUG
+
+wechat:
+  miniapp:
+    app-id: ${WECHAT_APP_ID:wxfd50e31618b4aee9}
+    secret: ${WECHAT_SECRET:410bc175490af8a7d63201fd97ef9c7c}
+    grant-type: authorization_code
+    templates:
+      vaccine-reminder-template-id: ${VACCINE_TEMPLATE_ID:l21wHbmOMHcR-d5jD4tUkoyYUNVeYjr5E6XrUuFAwJI}
+      deworm-reminder-template-id: ${DEWORM_TEMPLATE_ID:l21wHbmOMHcR-d5jD4tUkoyYUNVeYjr5E6XrUuFAwJI}
+
+# 文件上传配置
+file:
+  upload:
+    dir: ${UPLOAD_DIR:uploads}
+    max-size: 10MB
+
+---
+# 生产环境配置
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    url: jdbc:mysql://${DB_HOST:8.130.181.170}:${DB_PORT:3306}/${DB_NAME:pet_health_note}?useSSL=false&characterEncoding=utf8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:12345678}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+  global-config:
+    db-config:
+      id-type: auto
+
+server:
+  port: 8080
+  compression:
+    enabled: true
+    mime-types: application/json,application/xml,text/html,text/xml,text/plain
+
+logging:
+  level:
+    root: INFO
+    com.pethealthnote: INFO
+  file:
+    name: logs/pet-health-note.log
+    max-size: 10MB
+    max-history: 30
+
+wechat:
+  miniapp:
+    app-id: ${WECHAT_APP_ID:wxfd50e31618b4aee9}
+    secret: ${WECHAT_SECRET:410bc175490af8a7d63201fd97ef9c7c}
+    grant-type: authorization_code
+    templates:
+      vaccine-reminder-template-id: ${VACCINE_TEMPLATE_ID:l21wHbmOMHcR-d5jD4tUkoyYUNVeYjr5E6XrUuFAwJI}
+      deworm-reminder-template-id: ${DEWORM_TEMPLATE_ID:l21wHbmOMHcR-d5jD4tUkoyYUNVeYjr5E6XrUuFAwJI}
+
+# 文件上传配置
+file:
+  upload:
+    dir: ${UPLOAD_DIR:uploads}
+    max-size: 10MB
