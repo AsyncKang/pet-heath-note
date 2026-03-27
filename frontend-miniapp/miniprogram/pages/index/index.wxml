@@ -1,0 +1,21 @@
+<view class="page-title">我的宠物</view>
+
+<button class="btn-primary add-btn" bindtap="handleAddPet">新增宠物</button>
+
+<view wx:if="{{pets.length === 0}}" class="card empty">暂无宠物，请先通过后台创建。</view>
+
+<view wx:for="{{pets}}" wx:key="id" class="card pet-card" bindtap="handleToDetail" data-id="{{item.id}}">
+  <image
+    class="pet-avatar"
+    src="{{item.avatarUrl || defaultPetAvatar}}"
+    mode="aspectFill"
+  />
+  <view class="pet-meta">
+    <view class="pet-name">{{item.name}}</view>
+    <view class="pet-info">种类：{{item.species || '未知'}} | 品种：{{item.breed || '未知'}}</view>
+    <view class="pet-info">年龄：{{item.ageText || '未知'}}</view>
+    <view class="pet-extra">体重：{{item.weightKg || '-'}}kg | 性别：{{item.gender === 1 ? '公' : item.gender === 2 ? '母' : '未知'}}</view>
+  </view>
+</view>
+
+

@@ -1,0 +1,188 @@
+<view wx:if="{{!pet}}" class="card">加载中...</view>
+
+<view wx:if="{{pet}}" class="card pet-profile">
+  <image class="pet-bg" src="{{pet.avatarUrl || defaultPetAvatar}}" mode="aspectFill" />
+  <view class="pet-overlay"></view>
+  <view class="pet-info">
+    <view class="pet-info-header">
+      <view>
+        <view class="pet-name">{{pet.name}}</view>
+        <view class="pet-tags">
+          <text class="tag">{{pet.species || '未知种类'}}</text>
+          <text class="tag">{{pet.breed || '品种未填'}}</text>
+        </view>
+      </view>
+      <button class="btn-edit" size="mini" bindtap="handleEditPet">编辑资料</button>
+    </view>
+
+    <view class="pet-meta-grid">
+      <view class="meta-item">
+        <text class="meta-label">出生年月</text>
+        <text class="meta-value">{{pet.birthDate || '未填写'}}</text>
+      </view>
+      <view class="meta-item">
+        <text class="meta-label">年龄</text>
+        <text class="meta-value accent">{{pet.ageText || '未知'}}</text>
+      </view>
+      <view class="meta-item">
+        <text class="meta-label">体重</text>
+        <text class="meta-value">{{pet.weightKg || '-'}} kg</text>
+      </view>
+      <view class="meta-item">
+        <text class="meta-label">性别</text>
+        <text class="meta-value">{{pet.gender === 1 ? '公' : pet.gender === 2 ? '母' : '未知'}}</text>
+      </view>
+    </view>
+
+    <view class="pet-remark">
+      <text class="remark-label">备注</text>
+      <text class="remark-content">{{pet.remark || '暂无备注信息'}}</text>
+    </view>
+  </view>
+</view>
+
+<view class="section-header">
+  <view>接种/驱虫提醒</view>
+  <view class="header-actions">
+    <button class="btn-secondary" size="mini" bindtap="handleViewReminders">查看全部</button>
+  </view>
+</view>
+
+<view wx:if="{{reminderLoading}}" class="card empty">提醒加载中...</view>
+<view wx:elif="{{reminders.length === 0}}" class="card empty">暂无待办提醒</view>
+<view wx:else>
+  <view wx:for="{{reminders}}" wx:key="id" class="card reminder-card">
+    <view class="reminder-header">
+      <view class="tag">{{item.typeTag}}</view>
+      <button
+        class="btn-mini"
+        size="mini"
+        data-id="{{item.id}}"
+        bindtap="handleReminderDone"
+      >
+        完成
+      </button>
+    </view>
+    <view class="reminder-title">{{item.title || '提醒事项'}}</view>
+    <view class="reminder-time">提醒时间：{{item.displayTime || '-'}}</view>
+    <view class="reminder-desc">{{item.content || '无详细说明'}}</view>
+  </view>
+</view>
+
+<view class="section-header">
+  <view>疫苗记录</view>
+  <view class="header-actions">
+    <button class="btn-primary" size="mini" bindtap="handleAddVaccine">新增</button>
+  </view>
+</view>
+
+<view wx:if="{{vaccineLoading}}" class="card empty">加载中...</view>
+<view wx:elif="{{vaccineRecords.length === 0}}" class="card empty">暂无疫苗记录</view>
+<view wx:else>
+  <view wx:for="{{vaccineRecords}}" wx:key="id" class="card record-card">
+    <view class="record-date">{{item.injectionDate || '-'}}</view>
+    <view class="record-field">疫苗名称：{{item.vaccineName || '-'}}</view>
+    <view class="record-field">类型：{{item.vaccineType || '-'}}</view>
+    <view class="record-field">剂量：{{item.dose || '-'}}</view>
+    <view class="record-field">下次接种：{{item.nextInjectionDate || '-'}}</view>
+    <view class="record-field">医院：{{item.hospitalName || '-'}}</view>
+    <view class="record-field">备注：{{item.remark || '无'}}</view>
+    <view class="record-actions">
+      <button
+        size="mini"
+        class="btn-secondary"
+        data-id="{{item.id}}"
+        data-is-deworm="{{false}}"
+        bindtap="handleEditVaccineRecord"
+      >
+        编辑
+      </button>
+      <button
+        size="mini"
+        class="btn-danger"
+        data-id="{{item.id}}"
+        bindtap="handleDeleteVaccineRecord"
+      >
+        删除
+      </button>
+    </view>
+  </view>
+</view>
+
+<view class="section-header">
+  <view>驱虫记录</view>
+  <view class="header-actions">
+    <button class="btn-primary" size="mini" bindtap="handleAddDeworm">新增</button>
+  </view>
+</view>
+
+<view wx:if="{{dewormLoading}}" class="card empty">加载中...</view>
+<view wx:elif="{{dewormRecords.length === 0}}" class="card empty">暂无驱虫记录</view>
+<view wx:else>
+  <view wx:for="{{dewormRecords}}" wx:key="id" class="card record-card">
+    <view class="record-date">{{item.injectionDate || '-'}}</view>
+    <view class="record-field">驱虫药品：{{item.vaccineName || '-'}}</view>
+    <view class="record-field">类型：{{item.vaccineType || '-'}}</view>
+    <view class="record-field">剂量：{{item.dose || '-'}}</view>
+    <view class="record-field">下次驱虫：{{item.nextInjectionDate || '-'}}</view>
+    <view class="record-field">医院：{{item.hospitalName || '-'}}</view>
+    <view class="record-field">备注：{{item.remark || '无'}}</view>
+    <view class="record-actions">
+      <button
+        size="mini"
+        class="btn-secondary"
+        data-id="{{item.id}}"
+        data-is-deworm="{{true}}"
+        bindtap="handleEditVaccineRecord"
+      >
+        编辑
+      </button>
+      <button
+        size="mini"
+        class="btn-danger"
+        data-id="{{item.id}}"
+        bindtap="handleDeleteVaccineRecord"
+      >
+        删除
+      </button>
+    </view>
+  </view>
+</view>
+
+<view class="section-header">
+  <view>健康记录</view>
+  <view class="header-actions">
+    <button class="btn-secondary" size="mini" bindtap="handleViewWeightChart">查看体重趋势</button>
+    <button class="btn-primary" size="mini" bindtap="handleAddRecord">新增</button>
+  </view>
+</view>
+
+<view wx:if="{{healthRecords.length === 0}}" class="card empty">暂无健康记录</view>
+
+<view
+  wx:for="{{healthRecords}}"
+  wx:key="id"
+  class="health-item"
+  data-id="{{item.id}}"
+  bindtouchstart="handleHealthTouchStart"
+  bindtouchmove="handleHealthTouchMove"
+  bindtouchend="handleHealthTouchEnd"
+>
+  <view class="slide-delete" data-id="{{item.id}}" bindtap="handleDeleteHealth" style="right: {{item.deleteVisible ? 0 : -140}}rpx;">
+    删除
+  </view>
+  <view
+    class="card record-card health-card"
+    style="transform: translateX({{item.swipeOffset || 0}}rpx);"
+  >
+    <view class="record-date">{{item.displayDate || item.recordDate || '-'}}</view>
+    <view class="record-field">体重：{{item.weightKg || '-'}}kg</view>
+    <view class="record-field">体温：{{item.temperatureC || '-'}}℃</view>
+    <view class="record-field">
+      食欲：{{item.appetite || '-'}} 精神：{{item.spirit || '-'}} 排泄：{{item.stool || '-'}}
+    </view>
+    <view class="record-field">备注：{{item.note || '无'}}</view>
+  </view>
+</view>
+
+

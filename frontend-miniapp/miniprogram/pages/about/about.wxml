@@ -1,0 +1,34 @@
+<view class="page">
+  <view class="hero">
+    <view class="app-name">宠康记 PetHealthNote</view>
+    <view class="tagline">让宠物健康管理更轻松</view>
+  </view>
+
+  <view class="card">
+    <view class="title">产品愿景</view>
+    <view class="content">
+      宠康记是一款专注宠物健康档案的微信小程序，我们希望用简单的记录工具，帮助铲屎官随时掌握宠物的疫苗、驱虫、健康指标与遛弯数据。
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="title">核心功能</view>
+    <view class="content list">
+      <text>· 宠物信息与体征记录</text>
+      <text>· 疫苗 / 驱虫管理与提醒</text>
+      <text>· 健康记录、体重曲线</text>
+      <text>· 遛弯轨迹与天气同步</text>
+      <text>· 收藏宠物相关地点</text>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="title">联系我们</view>
+    <view class="content">
+      <text>邮箱：hi@pethealthnote.com</text>
+      <text>官方社区：即将上线</text>
+    </view>
+  </view>
+</view>
+<!--pages/about/about.wxml-->
+<text>pages/about/about.wxml</text>

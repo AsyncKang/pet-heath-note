@@ -1,0 +1,25 @@
+<view class="health-page">
+  <view class="card hero">
+    <view class="hero-title">健康总览</view>
+    <view class="hero-desc">查看近期提醒与健康任务</view>
+    <view class="hero-actions">
+      <button class="btn-primary" size="mini" bindtap="handleViewAllReminders">提醒列表</button>
+      <button size="mini" bindtap="handleGoPets">宠物管理</button>
+    </view>
+  </view>
+
+  <view class="card section">
+    <view class="section-title">待办提醒</view>
+    <view wx:if="{{loading}}" class="empty">加载中...</view>
+    <view wx:elif="{{upcomingReminders.length === 0}}" class="empty">暂无待办提醒</view>
+    <view wx:else>
+      <view wx:for="{{upcomingReminders}}" wx:key="id" class="reminder-item">
+        <view class="title">{{item.title}}</view>
+        <view class="time">{{item.remindTime || '-'}}</view>
+        <view class="type">{{item.reminderType || '其他'}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+

@@ -1,0 +1,69 @@
+<view class="login-page">
+  <!-- 背景装饰 -->
+  <view class="bg-decoration">
+    <view class="circle circle-1"></view>
+    <view class="circle circle-2"></view>
+    <view class="circle circle-3"></view>
+  </view>
+  
+  <view class="logo-container">
+    <view class="logo-icon">🐾</view>
+    <view class="logo">宠康记</view>
+    <view class="desc">记录宠物健康，陪伴成长每一天</view>
+  </view>
+  
+  <!-- 头像昵称填写界面 -->
+  <view class="avatar-nickname-section" wx:if="{{showAvatarNickname}}">
+    <view class="card-bg-pattern"></view>
+    <view class="section-header">
+      <view class="section-title">完善个人信息</view>
+    </view>
+    
+    <view class="form-item avatar-item">
+      <view class="item-label">选择头像</view>
+      <button class="avatar-btn" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar">
+        <view class="avatar-container">
+          <image wx:if="{{tempAvatar}}" class="avatar-preview" src="{{tempAvatar}}" mode="aspectFill"></image>
+          <view wx:else class="avatar-placeholder">
+            <view class="avatar-icon-wrapper">
+              <text class="avatar-icon">+</text>
+            </view>
+            <text class="avatar-text">点击选择头像</text>
+          </view>
+        </view>
+      </button>
+    </view>
+    
+    <view class="form-item nickname-item">
+      <view class="item-label">输入昵称</view>
+      <view class="input-wrapper">
+        <input 
+          class="nickname-input" 
+          type="nickname" 
+          placeholder="请输入您的昵称" 
+          value="{{tempNickname}}"
+          bindinput="onNicknameInput"
+          bindblur="onNicknameBlur"
+          maxlength="20"
+        />
+        <view class="input-border"></view>
+      </view>
+    </view>
+    
+    <button class="confirm-btn" bindtap="handleConfirmLogin" loading="{{loading}}" disabled="{{loading}}">
+      <text wx:if="{{!loading}}">确认登录</text>
+      <text wx:else>登录中...</text>
+    </button>
+  </view>
+  
+  <!-- 初始状态：显示登录按钮 -->
+  <view wx:else class="login-container">
+    <button class="login-btn" bindtap="handleLogin" loading="{{loading}}" disabled="{{loading}}">
+      <text class="btn-icon">🚀</text>
+      <text>微信一键登录</text>
+    </button>
+    <view class="login-tip">点击登录即表示同意用户协议和隐私政策</view>
+  </view>
+</view>
+
+

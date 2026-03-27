@@ -1,0 +1,146 @@
+.walk-page {
+  min-height: 100vh;
+  background: #f5f6fa;
+  padding-bottom: 40rpx;
+}
+
+.card {
+  background: #fff;
+  margin: 20rpx;
+  padding: 24rpx;
+  border-radius: 16rpx;
+  box-shadow: 0 6rpx 16rpx rgba(0, 0, 0, 0.04);
+}
+
+.pet-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+}
+
+.pet-selector .label {
+  font-size: 28rpx;
+  color: #555;
+}
+
+.picker-value {
+  border: 1rpx solid #ddd;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  background: #fafafa;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.stats-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  margin-bottom: 16rpx;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16rpx;
+}
+
+.stats-item {
+  background: #f5f5f5;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  text-align: center;
+}
+
+.stats-item .value {
+  font-size: 32rpx;
+  font-weight: 600;
+}
+
+.stats-item .label {
+  color: #666;
+  margin-top: 8rpx;
+}
+
+.recording-card .record-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  margin-bottom: 12rpx;
+}
+
+.record-row {
+  font-size: 28rpx;
+  color: #555;
+  margin: 6rpx 0;
+}
+
+.record-actions {
+  margin-top: 20rpx;
+  display: flex;
+  gap: 20rpx;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 30rpx;
+  font-weight: 600;
+  margin-bottom: 12rpx;
+}
+
+.walk-item {
+  border-bottom: 1rpx solid #f0f0f0;
+  padding: 20rpx 0;
+}
+
+.walk-item:last-child {
+  border-bottom: none;
+}
+
+.walk-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.walk-top .date {
+  font-size: 28rpx;
+  font-weight: 600;
+}
+
+.walk-top .distance {
+  font-size: 28rpx;
+  color: #7a5af8;
+}
+
+.detail {
+  font-size: 26rpx;
+  color: #666;
+  margin-top: 6rpx;
+}
+
+.remark {
+  color: #999;
+}
+
+.empty {
+  text-align: center;
+  color: #999;
+}
+
+.walk-actions {
+  margin-top: 16rpx;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-track {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  padding: 8rpx 20rpx;
+  box-shadow: 0 4rpx 12rpx rgba(102, 126, 234, 0.3);
+}
+

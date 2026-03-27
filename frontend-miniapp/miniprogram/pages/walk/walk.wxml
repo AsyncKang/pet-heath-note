@@ -1,0 +1,64 @@
+<view class="walk-page">
+  <view class="card pet-selector">
+    <view class="label">选择宠物</view>
+    <picker mode="selector" value="{{selectedPetIndex}}" range="{{pets}}" range-key="name" bindchange="handlePetPicker">
+      <view class="picker-value">
+        {{pets.length === 0 ? '暂无宠物，请前往“宠物”页新增' : (selectedPetName || '请选择宠物')}}
+      </view>
+    </picker>
+  </view>
+
+  <view class="card recording-card" wx:if="{{selectedPetId}}">
+    <view class="record-title">{{isRecording ? '正在遛弯...' : '准备开始遛弯'}}</view>
+    <view class="record-row">时长：{{elapsedText}}</view>
+    <view class="record-row">距离：{{distanceKm.toFixed(2)}} km</view>
+    <view class="record-row">天气：{{weatherDesc || '待获取'}}</view>
+    <view class="record-actions">
+      <button class="btn-primary" bindtap="handleStartWalk" wx:if="{{!isRecording}}">开始遛弯</button>
+      <button type="warn" bindtap="handleStopWalk" wx:else>结束遛弯</button>
+    </view>
+  </view>
+
+  <view class="card stats" wx:if="{{selectedPetId}}">
+    <view class="stats-title">本月遛弯</view>
+    <view class="stats-grid">
+      <view class="stats-item">
+        <view class="value">{{stats.totalDistanceKm || 0}} km</view>
+        <view class="label">总里程</view>
+      </view>
+      <view class="stats-item">
+        <view class="value">{{stats.totalDurationMin || 0}} min</view>
+        <view class="label">总时长</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="card list-section" wx:if="{{selectedPetId}}">
+    <view class="section-header">
+      <view>遛弯记录</view>
+      <view>
+        <button size="mini" bindtap="handleAddWalk" style="margin-right: 12rpx;">手动录入</button>
+        <button size="mini" bindtap="fetchWalkData" loading="{{loading}}">刷新</button>
+      </view>
+    </view>
+    <view wx:if="{{walkRecords.length === 0}}" class="empty">暂无记录，点击“新增遛弯”记录第一次散步吧。</view>
+    <view wx:else>
+      <view wx:for="{{walkRecords}}" wx:key="id" class="walk-item">
+        <view class="walk-top">
+          <view class="date">{{item.walkDate || '-'}}</view>
+          <view class="distance">{{item.distanceKm || 0}} km</view>
+        </view>
+        <view class="detail">起止：{{item.startTime || '-'}} - {{item.endTime || '-'}}</view>
+        <view class="detail">时长：{{item.durationMinutes || 0}} 分钟</view>
+        <view class="detail">地点：{{item.location || '未填写'}}</view>
+        <view class="detail">天气：{{item.weatherDesc || '-'}} | 心情：{{item.mood || '-'}}</view>
+        <view class="detail remark">备注：{{item.remark || '无'}}</view>
+        <view class="walk-actions" wx:if="{{item.pathPoints}}">
+          <button class="btn-track" size="mini" bindtap="handleViewTrack" data-id="{{item.id}}">查看轨迹</button>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+

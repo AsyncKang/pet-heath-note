@@ -1,0 +1,78 @@
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 24rpx 0;
+}
+
+.title {
+  font-size: 34rpx;
+  font-weight: 600;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.filter {
+  padding: 8rpx 16rpx;
+  border: 1rpx solid #ddd;
+  border-radius: 8rpx;
+  font-size: 26rpx;
+}
+
+.reminder-card .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12rpx;
+}
+
+.reminder-card .title {
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.reminder-card .status {
+  font-size: 24rpx;
+  padding: 4rpx 12rpx;
+  border-radius: 999rpx;
+}
+
+.reminder-card .status.pending {
+  background: #fff1e3;
+  color: #ff8a00;
+}
+
+.reminder-card .status.done {
+  background: #e6f7ed;
+  color: #0aa35b;
+}
+
+.reminder-card .field {
+  font-size: 26rpx;
+  color: #666;
+  margin-bottom: 6rpx;
+}
+
+.actions-row {
+  margin-top: 12rpx;
+  display: flex;
+  gap: 12rpx;
+}
+
+.empty {
+  text-align: center;
+  color: #999;
+  padding: 60rpx 0;
+}
+
+

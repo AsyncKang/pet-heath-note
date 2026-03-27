@@ -1,0 +1,78 @@
+<view class="card form-card">
+  <view class="form-item avatar-item">
+    <view class="label">宠物头像</view>
+    <view class="avatar-upload">
+      <view class="avatar-box" bindtap="handleChooseAvatar">
+        <image
+          wx:if="{{form.avatarUrl}}"
+          class="avatar-preview"
+          src="{{form.avatarUrl}}"
+          mode="aspectFill"
+        />
+        <view wx:else class="avatar-placeholder">
+          <text class="plus">+</text>
+          <text class="tip">上传头像</text>
+        </view>
+      </view>
+      <button
+        wx:if="{{form.avatarUrl}}"
+        class="btn-secondary"
+        size="mini"
+        bindtap="handleRemoveAvatar"
+      >
+        移除
+      </button>
+    </view>
+  </view>
+
+  <view class="form-item">
+    <view class="label">宠物名称</view>
+    <input placeholder="例如：小黑" data-field="name" value="{{form.name}}" bindinput="bindInput" />
+  </view>
+
+  <view class="form-item">
+    <view class="label">种类</view>
+    <picker mode="selector" range="{{speciesOptions}}" range-key="label" value="{{speciesIndex}}" bindchange="bindSpeciesChange">
+      <view class="picker-value">{{speciesOptions[speciesIndex].label}}</view>
+    </picker>
+  </view>
+
+  <view class="form-item">
+    <view class="label">品种</view>
+    <picker mode="selector" range="{{breedOptions}}" value="{{breedIndex}}" bindchange="handleBreedChange">
+      <view class="picker-value">
+        {{breedOptions[breedIndex] || '请选择品种'}}
+      </view>
+    </picker>
+  </view>
+
+  <view class="form-item">
+    <view class="label">性别</view>
+    <picker mode="selector" range="{{genderOptions}}" range-key="label" value="{{genderIndex}}" bindchange="bindGenderChange">
+      <view class="picker-value">{{genderOptions[genderIndex].label}}</view>
+    </picker>
+  </view>
+
+  <view class="form-item">
+    <view class="label">出生日期</view>
+    <picker mode="date" value="{{form.birthDate}}" end="{{maxBirthDate}}" bindchange="handleBirthDateChange">
+      <view class="picker-value">{{form.birthDate || '请选择出生日期'}}</view>
+    </picker>
+  </view>
+
+  <view class="form-item">
+    <view class="label">体重 kg</view>
+    <input type="digit" data-field="weightKg" value="{{form.weightKg}}" bindinput="bindInput" />
+  </view>
+
+  <view class="form-item">
+    <view class="label">备注</view>
+    <textarea placeholder="可填写性格、习惯等" data-field="remark" value="{{form.remark}}" bindinput="bindInput"></textarea>
+  </view>
+
+  <button class="btn-primary submit-btn" loading="{{submitting}}" disabled="{{submitting}}" bindtap="handleSubmit">
+    {{isEdit ? '保存' : '提交'}}
+  </button>
+</view>
+
+

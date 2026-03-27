@@ -1,0 +1,50 @@
+<view class="track-page">
+  <view wx:if="{{loading}}" class="loading">加载中...</view>
+  
+  <view wx:else class="map-container">
+    <map
+      id="walkMap"
+      class="walk-map"
+      latitude="{{latitude}}"
+      longitude="{{longitude}}"
+      scale="{{scale}}"
+      markers="{{markers}}"
+      polyline="{{polyline}}"
+      show-location
+      enable-zoom="{{true}}"
+      enable-scroll="{{true}}"
+      enable-rotate="{{true}}"
+      enable-overlooking="{{true}}"
+      enable-satellite="{{true}}"
+      enable-traffic="{{false}}"
+      enable-3D="{{true}}"
+      enable-building="{{true}}"
+      min-scale="10"
+      max-scale="20"
+      bindtap="onMapTap"
+      bindregionchange="onRegionChange"
+    ></map>
+    
+    <view class="map-info">
+      <view class="info-card" wx:if="{{walkRecord}}">
+        <view class="info-row">
+          <text class="label">日期：</text>
+          <text>{{walkRecord.walkDate || '-'}}</text>
+        </view>
+        <view class="info-row">
+          <text class="label">距离：</text>
+          <text>{{walkRecord.distanceKm || 0}} km</text>
+        </view>
+        <view class="info-row">
+          <text class="label">时长：</text>
+          <text>{{walkRecord.durationMinutes || 0}} 分钟</text>
+        </view>
+        <view class="info-row">
+          <text class="label">轨迹点数：</text>
+          <text>{{pathPoints.length}} 个</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+

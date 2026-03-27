@@ -1,0 +1,32 @@
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 24rpx 0;
+  font-size: 32rpx;
+  font-weight: 600;
+}
+
+.actions {
+  display: flex;
+  gap: 16rpx;
+}
+
+.vaccine-card .title {
+  font-size: 32rpx;
+  font-weight: 600;
+  margin-bottom: 12rpx;
+}
+
+.vaccine-card .field {
+  font-size: 26rpx;
+  color: #666;
+  margin-bottom: 6rpx;
+}
+
+.empty {
+  text-align: center;
+  color: #999;
+}
+
+

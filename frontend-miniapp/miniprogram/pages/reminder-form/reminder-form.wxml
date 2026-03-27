@@ -1,0 +1,37 @@
+<view class="card form-card">
+  <view class="form-item">
+    <view class="label">提醒类型</view>
+    <input placeholder="例如：VACCINE / MEDICAL" data-field="reminderType" value="{{form.reminderType}}" bindinput="bindInput" />
+  </view>
+
+  <view class="form-item">
+    <view class="label">标题</view>
+    <input placeholder="提醒标题" data-field="title" value="{{form.title}}" bindinput="bindInput" />
+  </view>
+
+  <view class="form-item">
+    <view class="label">提醒时间</view>
+    <view class="time-picker">
+      <picker mode="date" value="{{form.remindDate}}" bindchange="bindDateChange">
+        <view class="picker-value">{{form.remindDate}}</view>
+      </picker>
+      <picker mode="time" value="{{form.remindTime}}" bindchange="bindTimeChange">
+        <view class="picker-value">{{form.remindTime}}</view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="form-item">
+    <view class="label">内容</view>
+    <textarea placeholder="填写提醒内容或备注" data-field="content" value="{{form.content}}" bindinput="bindInput"></textarea>
+  </view>
+
+  <view class="form-item">
+    <view class="label">关联宠物ID（可选）</view>
+    <input type="number" placeholder="填写宠物ID，可留空" data-field="petId" value="{{form.petId}}" bindinput="bindInput" />
+  </view>
+
+  <button class="btn-primary submit-btn" loading="{{submitting}}" disabled="{{submitting}}" bindtap="handleSubmit">提交</button>
+</view>
+
+

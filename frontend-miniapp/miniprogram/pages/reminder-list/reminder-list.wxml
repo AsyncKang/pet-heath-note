@@ -1,0 +1,35 @@
+<view class="page-header">
+  <view class="title">提醒列表</view>
+  <view class="actions">
+    <view class="filter-group">
+      <picker mode="selector" range="{{statusOptions}}" range-key="label" value="{{statusIndex}}" bindchange="handleFilterChange">
+        <view class="filter">状态：{{statusLabel}}</view>
+      </picker>
+      <picker mode="selector" range="{{typeOptions}}" range-key="label" value="{{typeIndex}}" bindchange="handleTypeChange">
+        <view class="filter">类型：{{typeLabel}}</view>
+      </picker>
+    </view>
+    <button size="mini" bindtap="handleRefresh" loading="{{loading}}">刷新</button>
+    <button class="btn-primary" size="mini" bindtap="handleAddReminder">新增</button>
+  </view>
+</view>
+
+<view wx:if="{{reminders.length === 0}}" class="card empty">暂无提醒</view>
+
+<view wx:for="{{reminders}}" wx:key="id" class="card reminder-card">
+  <view class="header">
+    <view class="title">{{item.title}}</view>
+    <view class="status {{item.status === 1 ? 'done' : 'pending'}}">
+      {{item.status === 1 ? '已完成' : '待提醒'}}
+    </view>
+  </view>
+  <view class="field">类型：{{item.reminderType || '-'}}</view>
+  <view class="field">提醒时间：{{item.remindTime || '-'}}</view>
+  <view class="field">内容：{{item.content || '无'}}</view>
+  <view class="actions-row">
+    <button size="mini" data-id="{{item.id}}" bindtap="handleFinish" disabled="{{item.status === 1}}">标记完成</button>
+    <button size="mini" type="warn" data-id="{{item.id}}" bindtap="handleDelete">删除</button>
+  </view>
+</view>
+
+

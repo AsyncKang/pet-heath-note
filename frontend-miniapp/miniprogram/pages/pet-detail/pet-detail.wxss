@@ -1,0 +1,246 @@
+.pet-profile {
+  display: flex;
+  align-items: flex-start;
+  padding: 48rpx;
+  border: none;
+  border-radius: 36rpx;
+  overflow: hidden;
+  position: relative;
+  min-height: 280rpx;
+}
+
+.pet-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.6;
+  filter: blur(12rpx);
+  transform: scale(1.02);
+}
+
+.pet-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(27, 33, 64, 0.55), rgba(91, 134, 229, 0.4));
+}
+
+.pet-profile .pet-info {
+  position: relative;
+  flex: 1;
+  color: #fff;
+}
+
+.pet-info-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16rpx;
+}
+
+.pet-name {
+  font-size: 44rpx;
+  font-weight: 700;
+}
+
+.pet-tags {
+  margin-top: 12rpx;
+  display: flex;
+  gap: 12rpx;
+  flex-wrap: wrap;
+}
+
+.pet-tags .tag {
+  font-size: 22rpx;
+  padding: 4rpx 18rpx;
+  border-radius: 999rpx;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.btn-edit {
+  border: none;
+  background: linear-gradient(135deg, #36d1dc 0%, #5b86e5 100%);
+  color: #fff;
+  border-radius: 999rpx;
+  padding: 0 32rpx;
+  box-shadow: 0 10rpx 24rpx rgba(91, 134, 229, 0.35);
+  backdrop-filter: blur(6rpx);
+}
+
+.pet-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16rpx;
+  margin-top: 24rpx;
+}
+
+.meta-item {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20rpx;
+  padding: 16rpx 20rpx;
+  box-shadow: inset 0 0 0 1rpx rgba(255, 255, 255, 0.1);
+}
+
+.meta-label {
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.meta-value {
+  display: block;
+  margin-top: 6rpx;
+  font-size: 30rpx;
+  color: #fff;
+  font-weight: 600;
+}
+
+.meta-value.accent {
+  color: #ffd86f;
+}
+
+.pet-remark {
+  margin-top: 28rpx;
+  padding: 20rpx 24rpx;
+  border-radius: 20rpx;
+  background: rgba(0, 0, 0, 0.25);
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.remark-label {
+  font-size: 24rpx;
+  font-weight: 600;
+  margin-right: 12rpx;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.remark-content {
+  font-size: 26rpx;
+}
+.record-field {
+  font-size: 26rpx;
+  color: #555;
+  margin-top: 6rpx;
+}
+
+.record-card {
+  position: relative;
+}
+
+.record-date {
+  font-size: 30rpx;
+  font-weight: 600;
+  margin-bottom: 12rpx;
+}
+
+.record-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16rpx;
+  margin-top: 16rpx;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+}
+
+.header-actions {
+  display: flex;
+  gap: 12rpx;
+}
+
+.btn-secondary {
+  border: none;
+  background: #f0f1f5;
+  color: #555;
+  border-radius: 999rpx;
+  padding: 0 20rpx;
+}
+
+.btn-danger {
+  border: none;
+  background: linear-gradient(135deg, #ff5f6d 0%, #ffc371 100%);
+  color: #fff;
+  border-radius: 999rpx;
+  padding: 0 24rpx;
+}
+
+.reminder-card {
+  padding: 28rpx;
+  margin-bottom: 20rpx;
+  background: #fdfdff;
+  border: 1px solid #eef0f5;
+  border-radius: 24rpx;
+}
+
+.reminder-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12rpx;
+}
+
+.reminder-card .tag {
+  font-size: 24rpx;
+  color: #4c7dff;
+  background: rgba(76, 125, 255, 0.1);
+  padding: 4rpx 16rpx;
+  border-radius: 999rpx;
+}
+
+.reminder-card .btn-mini {
+  border: none;
+  background: #4caf50;
+  color: #fff;
+  border-radius: 999rpx;
+  padding: 0 26rpx;
+  font-size: 24rpx;
+}
+
+.reminder-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  margin-bottom: 6rpx;
+}
+
+.reminder-time,
+.reminder-desc {
+  font-size: 26rpx;
+  color: #666;
+  margin-top: 4rpx;
+}
+
+.health-item {
+  margin-bottom: 16rpx;
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+}
+
+.slide-delete {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 140rpx;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
+  color: #fff;
+  font-size: 28rpx;
+  z-index: 1;
+}
+
+.health-card {
+  position: relative;
+  transition: transform 0.2s ease;
+  z-index: 2;
+}
+
+

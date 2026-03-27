@@ -1,0 +1,30 @@
+{
+  "miniprogramRoot": "miniprogram/",
+  "projectname": "pet-health-note",
+  "description": "宠康记微信小程序",
+  "appid": "wxfd50e31618b4aee9",
+  "compileType": "miniprogram",
+  "libVersion": "3.11.2",
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "minified": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    }
+  },
+  "condition": {},
+  "srcMiniprogramRoot": "miniprogram/",
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  }
+}

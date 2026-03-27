@@ -1,0 +1,43 @@
+.add-btn {
+  margin: 20rpx 0;
+}
+
+.pet-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 24rpx;
+}
+
+.pet-avatar {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 24rpx;
+  background: #f6f7fb;
+  object-fit: cover;
+}
+
+.pet-meta {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+}
+
+.pet-name {
+  font-size: 34rpx;
+  font-weight: 600;
+}
+
+.pet-info,
+.pet-extra {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.empty {
+  text-align: center;
+  color: #999;
+}
+
+

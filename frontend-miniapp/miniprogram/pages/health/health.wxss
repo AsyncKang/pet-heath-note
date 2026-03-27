@@ -1,0 +1,71 @@
+.health-page {
+  min-height: 100vh;
+  background: #f5f6fa;
+  padding-bottom: 40rpx;
+}
+
+.card {
+  background: #fff;
+  margin: 20rpx;
+  padding: 24rpx;
+  border-radius: 16rpx;
+  box-shadow: 0 6rpx 16rpx rgba(0, 0, 0, 0.04);
+}
+
+.hero {
+  background: linear-gradient(135deg, #36cfc9, #1890ff);
+  color: #fff;
+}
+
+.hero-title {
+  font-size: 36rpx;
+  font-weight: 600;
+}
+
+.hero-desc {
+  margin: 8rpx 0 16rpx;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16rpx;
+}
+
+.section-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  margin-bottom: 16rpx;
+}
+
+.reminder-item {
+  padding: 16rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.reminder-item:last-child {
+  border-bottom: none;
+}
+
+.reminder-item .title {
+  font-size: 28rpx;
+  font-weight: 600;
+}
+
+.reminder-item .time {
+  color: #666;
+  font-size: 24rpx;
+  margin: 4rpx 0;
+}
+
+.reminder-item .type {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.empty {
+  text-align: center;
+  color: #999;
+}
+
+

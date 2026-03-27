@@ -1,0 +1,46 @@
+<view class="favorite-page">
+  <view class="filter-card">
+    <scroll-view scroll-x class="filter-tabs">
+      <view
+        wx:for="{{placeTypeTabs}}"
+        wx:key="value"
+        class="filter-tab {{activeType === item.value ? 'active' : ''}}"
+        data-value="{{item.value}}"
+        bindtap="handleFilterTap"
+      >
+        {{item.label}}
+      </view>
+    </scroll-view>
+    <button class="btn-add" size="mini" bindtap="handleAddFavorite">+ 添加收藏</button>
+  </view>
+
+  <view wx:if="{{favorites.length === 0 && !loading}}" class="empty">
+    暂无收藏，点击“+ 添加收藏”创建第一个地点吧
+  </view>
+
+  <view wx:else class="list-card">
+    <view
+      wx:for="{{favorites}}"
+      wx:key="id"
+      class="favorite-item"
+      data-id="{{item.id}}"
+      bindtap="handleItemTap"
+      bindlongpress="handleItemLongPress"
+    >
+      <view class="item-header">
+        <view class="item-name">{{item.name}}</view>
+        <view class="type-tag">{{item.typeLabel}}</view>
+      </view>
+      <view class="item-row">
+        <text class="label">地址：</text>
+        <text class="value">{{item.displayAddress || '-'}}</text>
+      </view>
+      <view class="item-row">
+        <text class="label">电话：</text>
+        <text class="value">{{item.contact || '未填写'}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+

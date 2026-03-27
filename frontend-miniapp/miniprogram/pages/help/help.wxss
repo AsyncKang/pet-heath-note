@@ -1,0 +1,45 @@
+.page {
+  min-height: 100vh;
+  background: #f6f7fb;
+  padding: 32rpx;
+}
+
+.card {
+  background: #fff;
+  border-radius: 24rpx;
+  padding: 32rpx;
+  margin-bottom: 24rpx;
+  box-shadow: 0 16rpx 40rpx rgba(15, 35, 95, 0.08);
+}
+
+.title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #1f1f1f;
+  margin-bottom: 20rpx;
+}
+
+.faq {
+  margin-bottom: 24rpx;
+}
+
+.question {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #4c6ef5;
+  margin-bottom: 6rpx;
+}
+
+.answer {
+  font-size: 26rpx;
+  color: #555;
+  line-height: 1.6;
+}
+
+.contact text {
+  display: block;
+  font-size: 26rpx;
+  color: #555;
+  margin-top: 8rpx;
+}
+/* pages/help/help.wxss */

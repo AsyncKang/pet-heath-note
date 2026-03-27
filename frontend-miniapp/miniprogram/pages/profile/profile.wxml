@@ -1,0 +1,55 @@
+<view class="profile-page">
+  <view class="user-card card">
+    <image
+      class="avatar"
+      src="{{(userInfo && userInfo.avatarUrl) ? userInfo.avatarUrl : 'https://cdn.jsdelivr.net/gh/placeholderlogo/pet-avatar@main/avatar.png'}}"
+      mode="aspectFill"
+      bindtap="handleAvatarTap"
+    />
+    <view class="user-info">
+      <view class="nickname">{{userInfo ? userInfo.nickname : '宠物主人'}}</view>
+      <view class="gender">性别：{{genderLabel}}</view>
+    </view>
+    <button class="edit-btn" size="mini" bindtap="handleEditProfile">编辑</button>
+  </view>
+
+  <view class="card section">
+    <view class="section-title">功能入口</view>
+    <view class="entry" bindtap="handleViewPets">
+      <view class="label">我的宠物</view>
+      <view class="value">{{petCount}} 只</view>
+    </view>
+    <view class="entry" bindtap="handleViewFavorites">
+      <view class="label">收藏夹</view>
+      <view class="value">{{favoriteCount}} 个</view>
+    </view>
+    <view class="entry" bindtap="handleHelp">
+      <view class="label">帮助中心</view>
+      <view class="value">FAQ</view>
+    </view>
+    <view class="entry" bindtap="handleAbout">
+      <view class="label">关于我们</view>
+      <view class="value">了解更多</view>
+    </view>
+  </view>
+
+  <view class="card section">
+    <view class="section-title">设置</view>
+    <view class="entry">
+      <view class="label">疫苗提醒</view>
+      <switch checked="{{notificationVaccineEnabled}}" bindchange="handleToggleVaccine" />
+    </view>
+    <view class="entry">
+      <view class="label">驱虫提醒</view>
+      <switch checked="{{notificationDewormEnabled}}" bindchange="handleToggleDeworm" />
+    </view>
+    <view class="entry" bindtap="handleClearCache">
+      <view class="label">清除缓存</view>
+    </view>
+    <view class="entry logout" bindtap="handleLogout">
+      <view class="label">退出登录</view>
+    </view>
+  </view>
+</view>
+
+

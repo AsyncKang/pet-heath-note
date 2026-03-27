@@ -1,0 +1,21 @@
+<view class="page-header">
+  <view>疫苗记录</view>
+  <view class="actions">
+    <button size="mini" bindtap="handleRefresh" loading="{{loading}}">刷新</button>
+    <button class="btn-primary" size="mini" bindtap="handleAddRecord">新增</button>
+  </view>
+</view>
+
+<view wx:if="{{records.length === 0}}" class="card empty">暂无疫苗记录</view>
+
+<view wx:for="{{records}}" wx:key="id" class="card vaccine-card">
+  <view class="title">{{item.vaccineName}}</view>
+  <view class="field">类型：{{item.vaccineType || '-'}}</view>
+  <view class="field">剂量：{{item.dose || '-'}}</view>
+  <view class="field">接种日期：{{item.injectionDate || '-'}}</view>
+  <view class="field">下次接种：{{item.nextInjectionDate || '-'}}</view>
+  <view class="field">医院：{{item.hospitalName || '-'}}</view>
+  <view class="field">备注：{{item.remark || '无'}}</view>
+</view>
+
+

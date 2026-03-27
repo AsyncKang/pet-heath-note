@@ -1,0 +1,58 @@
+<view class="card form-card">
+  <view class="form-item">
+    <view class="label">记录日期</view>
+    <view class="datetime-box">
+      <picker
+        mode="multiSelector"
+        range="{{[yearRange, monthRange, dayRange, hourRange, minuteRange]}}"
+        value="{{datetimePickerValue}}"
+        bindchange="handleDatetimeChange"
+        bindcolumnchange="handleDatetimeColumnChange"
+      >
+        <view class="datetime-part">
+          {{form.recordDate ? form.recordDate + ' ' + form.recordTime : '请选择日期时间'}}
+        </view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="form-item">
+    <view class="label">体重 kg</view>
+    <input type="digit" placeholder="例如：5.2" value="{{form.weightKg}}" data-field="weightKg" bindinput="bindInput" />
+  </view>
+
+  <view class="form-item">
+    <view class="label">体温 ℃</view>
+    <input type="digit" placeholder="例如：38.5" value="{{form.temperatureC}}" data-field="temperatureC" bindinput="bindInput" />
+  </view>
+
+  <view class="form-item">
+    <view class="label">食欲表现</view>
+    <picker mode="selector" range="{{appetiteOptions}}" range-key="label" value="{{appetiteIndex}}" data-field="appetite" bindchange="handlePickerChange">
+      <view class="picker-value">{{appetiteOptions[appetiteIndex].label}}</view>
+    </picker>
+  </view>
+
+  <view class="form-item">
+    <view class="label">精神状态</view>
+    <picker mode="selector" range="{{spiritOptions}}" range-key="label" value="{{spiritIndex}}" data-field="spirit" bindchange="handlePickerChange">
+      <view class="picker-value">{{spiritOptions[spiritIndex].label}}</view>
+    </picker>
+  </view>
+
+  <view class="form-item">
+    <view class="label">排泄情况</view>
+    <picker mode="selector" range="{{stoolOptions}}" range-key="label" value="{{stoolIndex}}" data-field="stool" bindchange="handlePickerChange">
+      <view class="picker-value">{{stoolOptions[stoolIndex].label}}</view>
+    </picker>
+  </view>
+
+  <view class="form-item">
+    <view class="label">备注</view>
+    <textarea placeholder="可填写饮食、行为等情况" value="{{form.note}}" data-field="note" bindinput="bindInput"></textarea>
+  </view>
+
+  <button class="btn-primary submit-btn" loading="{{submitting}}" disabled="{{submitting}}" bindtap="handleSubmit">提交</button>
+</view>
+
+

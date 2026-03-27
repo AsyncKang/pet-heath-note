@@ -1,0 +1,36 @@
+.form-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.form-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 26rpx;
+  color: #666;
+  margin-bottom: 8rpx;
+}
+
+input,
+textarea,
+.picker-value {
+  border: 1rpx solid #ddd;
+  border-radius: 8rpx;
+  padding: 16rpx;
+  background: #fafafa;
+}
+
+.time-picker {
+  display: flex;
+  gap: 16rpx;
+}
+
+.submit-btn {
+  margin-top: 20rpx;
+}
+
+

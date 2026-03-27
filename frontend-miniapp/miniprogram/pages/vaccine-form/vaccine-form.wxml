@@ -1,0 +1,48 @@
+<view class="card form-card">
+  <view class="form-item">
+    <view class="label">{{isDeworm ? '驱虫药品' : '疫苗名称'}}</view>
+    <picker mode="selector" range="{{currentNameOptions}}" range-key="label" value="{{vaccineNameIndex}}" data-field="vaccineName" bindchange="handlePickerChange">
+      <view class="picker-value">{{form.vaccineName || (currentNameOptions[vaccineNameIndex] && currentNameOptions[vaccineNameIndex].label) || '请选择'}}</view>
+    </picker>
+  </view>
+
+  <view class="form-item">
+    <view class="label">{{isDeworm ? '驱虫类型' : '疫苗类型'}}</view>
+    <picker mode="selector" range="{{currentTypeOptions}}" range-key="label" value="{{vaccineTypeIndex}}" data-field="vaccineType" bindchange="handlePickerChange">
+      <view class="picker-value">{{form.vaccineType || (currentTypeOptions[vaccineTypeIndex] && currentTypeOptions[vaccineTypeIndex].label) || '请选择'}}</view>
+    </picker>
+  </view>
+
+  <view class="form-item">
+    <view class="label">剂量</view>
+    <input placeholder="例如：1ml / 1片" data-field="dose" value="{{form.dose}}" bindinput="bindInput" />
+  </view>
+
+  <view class="form-item">
+    <view class="label">{{isDeworm ? '驱虫日期' : '接种日期'}}</view>
+    <picker mode="date" value="{{form.injectionDate}}" data-field="injectionDate" bindchange="bindDateChange">
+      <view class="picker-value">{{form.injectionDate || '请选择日期'}}</view>
+    </picker>
+  </view>
+
+  <view class="form-item">
+    <view class="label">{{isDeworm ? '下次驱虫日期' : '下次接种日期'}}</view>
+    <picker mode="date" value="{{form.nextInjectionDate}}" data-field="nextInjectionDate" bindchange="bindDateChange">
+      <view class="picker-value">{{form.nextInjectionDate || '请选择日期'}}</view>
+    </picker>
+  </view>
+
+  <view class="form-item">
+    <view class="label">{{isDeworm ? '驱虫医院' : '接种医院'}}</view>
+    <input placeholder="医院或机构名称" data-field="hospitalName" value="{{form.hospitalName}}" bindinput="bindInput" />
+  </view>
+
+  <view class="form-item">
+    <view class="label">备注</view>
+    <textarea placeholder="填写注意事项、异常反应等" data-field="remark" value="{{form.remark}}" bindinput="bindInput"></textarea>
+  </view>
+
+  <button class="btn-primary submit-btn" loading="{{submitting}}" disabled="{{submitting}}" bindtap="handleSubmit">提交</button>
+</view>
+
+

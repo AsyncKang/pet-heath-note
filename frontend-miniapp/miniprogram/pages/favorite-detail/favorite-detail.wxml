@@ -1,0 +1,44 @@
+<view class="favorite-detail-page" wx:if="{{favorite}}">
+  <view class="card header-card">
+    <view class="name">{{favorite.name}}</view>
+    <view class="type-tag">{{favorite.typeLabel}}</view>
+  </view>
+
+  <view class="card info-card">
+    <view class="info-row" bindtap="copyAddress">
+      <view class="label">地址</view>
+      <view class="value">{{favorite.address || '-'}}</view>
+      <view class="action">复制</view>
+    </view>
+    <view class="info-row" wx:if="{{favorite.contact}}" bindtap="callPhone">
+      <view class="label">电话</view>
+      <view class="value">{{favorite.contact}}</view>
+      <view class="action">拨打</view>
+    </view>
+    <view class="info-row" wx:if="{{favorite.remark}}">
+      <view class="label">备注</view>
+      <view class="value">{{favorite.remark}}</view>
+    </view>
+  </view>
+
+  <view class="card map-card">
+    <map
+      class="detail-map"
+      latitude="{{favorite.latitude}}"
+      longitude="{{favorite.longitude}}"
+      scale="16"
+      markers="{{[{ latitude: favorite.latitude, longitude: favorite.longitude, id: 1 }]}}"
+      show-location
+    ></map>
+  </view>
+
+  <view class="bottom-bar">
+    <button class="btn btn-nav" bindtap="handleNavigate">导航</button>
+    <button class="btn btn-edit" bindtap="handleEdit">编辑</button>
+    <button class="btn btn-delete" bindtap="handleDelete">删除</button>
+  </view>
+</view>
+
+<view class="loading" wx:if="{{!favorite && loading}}">加载中...</view>
+
+

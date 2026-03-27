@@ -1,0 +1,56 @@
+<view class="card form-card">
+  <view class="form-item">
+    <view class="label">选择宠物</view>
+    <picker mode="selector" range="{{pets}}" range-key="name" value="{{petIndex}}" bindchange="bindPetChange">
+      <view class="picker-value">{{petName || '请选择宠物'}}</view>
+    </picker>
+  </view>
+
+  <view class="form-item">
+    <view class="label">日期</view>
+    <picker mode="date" value="{{form.walkDate}}" bindchange="bindDateChange">
+      <view class="picker-value">{{form.walkDate}}</view>
+    </picker>
+  </view>
+
+  <view class="form-item">
+    <view class="label">开始时间</view>
+    <picker mode="time" value="{{form.startTime}}" bindchange="bindTimeChange">
+      <view class="picker-value">{{form.startTime}}</view>
+    </picker>
+  </view>
+
+  <view class="form-item">
+    <view class="label">时长（分钟）</view>
+    <input type="number" data-field="durationMinutes" value="{{form.durationMinutes}}" bindinput="bindInput" placeholder="例如 30" />
+  </view>
+
+  <view class="form-item">
+    <view class="label">距离（km）</view>
+    <input type="digit" data-field="distanceKm" value="{{form.distanceKm}}" bindinput="bindInput" placeholder="例如 1.2" />
+  </view>
+
+  <view class="form-item">
+    <view class="label">地点</view>
+    <input data-field="location" value="{{form.location}}" bindinput="bindInput" placeholder="例如：小区花园" />
+  </view>
+
+  <view class="form-item">
+    <view class="label">天气</view>
+    <input data-field="weather" value="{{form.weather}}" bindinput="bindInput" placeholder="晴 / 阴 / 雨" />
+  </view>
+
+  <view class="form-item">
+    <view class="label">心情</view>
+    <input data-field="mood" value="{{form.mood}}" bindinput="bindInput" placeholder="开心 / 正常 / 略疲" />
+  </view>
+
+  <view class="form-item">
+    <view class="label">备注</view>
+    <textarea data-field="remark" value="{{form.remark}}" bindinput="bindInput" placeholder="补充行为、注意事项等" />
+  </view>
+
+  <button class="btn-primary submit-btn" loading="{{submitting}}" disabled="{{submitting}}" bindtap="handleSubmit">保存</button>
+</view>
+
+

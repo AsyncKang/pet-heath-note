@@ -1,0 +1,78 @@
+<view class="favorite-form-page">
+  <view class="card">
+    <view class="form-item">
+      <view class="label">地点名称</view>
+      <input
+        placeholder="请输入地点名称"
+        value="{{form.name}}"
+        data-field="name"
+        bindinput="handleInput"
+      />
+    </view>
+
+    <view class="form-item">
+      <view class="label">地点类型</view>
+      <radio-group class="type-group" bindchange="handleTypeChange">
+        <label
+          wx:for="{{placeTypes}}"
+          wx:key="value"
+          class="type-option {{form.placeType === item.value ? 'checked' : ''}}"
+        >
+          <radio value="{{item.value}}" checked="{{form.placeType === item.value}}" />
+          <text>{{item.label}}</text>
+        </label>
+      </radio-group>
+    </view>
+
+    <view class="form-item">
+      <view class="label">联系方式</view>
+      <input
+        placeholder="输入电话号码，可包含 + -"
+        value="{{form.contact}}"
+        data-field="contact"
+        bindinput="handleInput"
+      />
+      <view class="error" wx:if="{{contactError}}">{{contactError}}</view>
+    </view>
+
+    <view class="form-item">
+      <view class="label">备注</view>
+      <textarea
+        placeholder="填写提醒或注意事项"
+        value="{{form.remark}}"
+        data-field="remark"
+        bindinput="handleInput"
+      ></textarea>
+    </view>
+  </view>
+
+  <view class="card map-card">
+    <view class="map-header">
+      <view>
+        <view class="map-title">地图选点</view>
+        <view class="map-desc">支持搜索地点或拖动地图选点</view>
+      </view>
+      <button class="btn-map" size="mini" bindtap="handleChooseLocation">选择地点</button>
+    </view>
+    <map
+      class="mini-map"
+      latitude="{{form.latitude || 39.9042}}"
+      longitude="{{form.longitude || 116.4074}}"
+      scale="16"
+      markers="{{form.latitude && form.longitude ? [{ latitude: form.latitude, longitude: form.longitude, id: 1 }] : []}}"
+      show-location
+    ></map>
+    <view class="address-info">
+      <view class="label">地址（自动填充）</view>
+      <view class="address-value">{{form.address || '请选择地点后自动填充'}}</view>
+    </view>
+  </view>
+
+  <view class="bottom-bar">
+    <button class="btn-save" loading="{{saving}}" disabled="{{saving}}" bindtap="handleSubmit">
+      保存
+    </button>
+  </view>
+</view>
+
+

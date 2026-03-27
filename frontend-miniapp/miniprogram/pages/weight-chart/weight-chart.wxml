@@ -1,0 +1,21 @@
+<view class="weight-chart-page">
+  <view class="card info-card">
+    <view class="title">{{petName || '宠物'}}体重变化</view>
+    <view class="subtitle">根据健康记录自动绘制，单位：kg</view>
+  </view>
+
+  <view class="card chart-card">
+    <view wx:if="{{!hasChartData && !loading}}" class="empty">
+      暂无体重数据，请先在健康记录中填写体重
+    </view>
+    <canvas
+      wx:else
+      canvas-id="weightChart"
+      class="chart-canvas"
+      style="width: {{chartWidth}}px; height: {{chartHeight}}px;"
+    ></canvas>
+    <view wx:if="{{loading}}" class="loading">加载中...</view>
+  </view>
+</view>
+
+

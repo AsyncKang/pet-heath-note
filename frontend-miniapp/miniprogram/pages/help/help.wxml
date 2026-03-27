@@ -1,0 +1,28 @@
+<view class="page">
+  <view class="card">
+    <view class="title">常见问题</view>
+    <view class="faq">
+      <view class="question">1. 如何添加宠物？</view>
+      <view class="answer">在「宠物」页点击“新增宠物”，填写资料即可。</view>
+    </view>
+    <view class="faq">
+      <view class="question">2. 为什么看不到提醒推送？</view>
+      <view class="answer">请在「我的」页开启疫苗/驱虫提醒，并在保存记录时允许订阅。</view>
+    </view>
+    <view class="faq">
+      <view class="question">3. 遛弯轨迹无法记录？</view>
+      <view class="answer">需要在手机系统和小程序内授权定位，同时保持 GPS 打开。</view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="title">联系客服</view>
+    <view class="contact">
+      <text>客服邮箱：support@pethealthnote.com</text>
+      <text>工作时间：周一至周五 9:00-18:00</text>
+    </view>
+  </view>
+</view>
+
+<!--pages/help/help.wxml-->
+<text>pages/help/help.wxml</text>
